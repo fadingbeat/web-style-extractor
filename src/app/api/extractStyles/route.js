@@ -7,13 +7,6 @@ import path from 'path';
 // import puppeteer from 'puppeteer';
 
 export async function GET(req) {
-  console.log('🔥 API /api/extractStyles WAS CALLED!'); // Debug log
-  return new Response(
-    JSON.stringify({ success: true, message: 'API is working!' }),
-    {
-      headers: { 'Content-Type': 'application/json' },
-    }
-  );
   const { searchParams } = new URL(req.url);
   const url = searchParams.get('url');
 
@@ -22,6 +15,13 @@ export async function GET(req) {
       status: 400,
     });
   }
+
+  return new Response(
+    JSON.stringify({ success: true, message: 'API is working!' }),
+    {
+      headers: { 'Content-Type': 'application/json' },
+    }
+  );
 
   let browser;
   try {
