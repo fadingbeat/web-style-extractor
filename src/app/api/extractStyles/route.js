@@ -37,7 +37,11 @@ export async function GET(req) {
   } catch (error) {
     console.error('Error extracting styles:', error);
     return new Response(
-      JSON.stringify({ error: 'Failed to extract styles.' }),
+      JSON.stringify({
+        error: 'Failed to extract styles.',
+        details: error.message,
+        stack: error.stack,
+      }),
       { status: 500 }
     );
   } finally {
