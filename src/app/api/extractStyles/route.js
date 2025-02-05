@@ -39,6 +39,8 @@
 //   }
 // }
 
+//
+
 import puppeteer from 'puppeteer';
 
 export async function GET(req) {
@@ -76,13 +78,12 @@ export async function GET(req) {
 
     return new Response(JSON.stringify({ colors }), { status: 200 });
   } catch (error) {
-    console.error('Error extracting styles:', error); // Logs full error in Vercel logs
-
+    console.error('Error extracting styles:', error);
     return new Response(
       JSON.stringify({
         error: 'Failed to extract styles.',
-        details: error.message, // 🔥 Return full error message
-        stack: error.stack, // 🔥 Include error stack trace
+        details: error.message,
+        stack: error.stack,
       }),
       { status: 500 }
     );
