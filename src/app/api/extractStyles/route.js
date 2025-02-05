@@ -14,9 +14,6 @@ export async function GET(req) {
       headers: { 'Content-Type': 'application/json' },
     }
   );
-}
-
-export async function GET(req) {
   const { searchParams } = new URL(req.url);
   const url = searchParams.get('url');
 
