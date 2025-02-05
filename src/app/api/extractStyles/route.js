@@ -6,16 +6,14 @@ import fs from 'fs';
 import path from 'path';
 // import puppeteer from 'puppeteer';
 
-export default async function handler(req, res) {
-  console.log('Checking Chromium directory...');
-  const chromiumPath = path.join(
-    '/home/sbx_user1051/.cache/puppeteer/chrome/linux-133.0.6943.53/chrome-linux64/chrome'
+export async function GET(req) {
+  console.log('🔥 API /api/extractStyles WAS CALLED!'); // Debug log
+  return new Response(
+    JSON.stringify({ success: true, message: 'API is working!' }),
+    {
+      headers: { 'Content-Type': 'application/json' },
+    }
   );
-
-  console.log('Expected path:', chromiumPath);
-  console.log('Exists:', fs.existsSync(chromiumPath));
-
-  res.json({ exists: fs.existsSync(chromiumPath), path: chromiumPath });
 }
 
 export async function GET(req) {
