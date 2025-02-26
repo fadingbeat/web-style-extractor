@@ -23,8 +23,6 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <canvas className="background"></canvas>
-        <script src="path/to/particles.min.js"></script>
       </body>
     </html>
   );
